@@ -8,19 +8,27 @@
         body {
             margin: 0;
             padding: 0;
+            background: transparent; /* Make background transparent */
+        }
+        .image-container {
+            width: 80%;
+            height: 80%;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
+            background: transparent; /* Make container transparent too */
         }
         img {
-            max-width: 100%;
+            max-width: 90%;
             height: auto;
+            display: block; /* Removes any extra space below the image */
         }
     </style>
 </head>
 <body>
-    <img id="dynamic-image" src="" alt="Niveau RH">
+    <div class="image-container">
+        <img id="dynamic-image" src="" alt="Niveau RH">
+    </div>
 
     <script>
         function getQueryParam(param) {
@@ -42,6 +50,12 @@
         } else {
             document.getElementById('dynamic-image').alt = "Niveau invalide ou non spécifié.";
         }
+
+        // Notify parent window of content height
+        window.addEventListener('load', function() {
+            const height = document.documentElement.scrollHeight;
+            window.parent.postMessage({ height: height }, '*');
+        });
     </script>
 </body>
 </html>

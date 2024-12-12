@@ -8,25 +8,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400" rel="stylesheet"/>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: left;
+            align-items: left;
             height: 100%;
-            text-align: center;
+            background: transparent;
+            background-color: transparent;
         }
-        p {
+        .description-container {
+            color: #333333;
+            display: flex;
             font-size: 1.2em;
             font-family: 'Figtree', sans-serif;
-            font-weight: 600;
+            font-weight: 400;
+            text-align: left;
+            background: transparent;
+            background-color: transparent;
+        }
+        p {
             margin: 0;
         }
     </style>
 </head>
 <body>
-    <p id="dynamic-text">Chargement...</p>
+    <div class="description-container">
+        <p id="dynamic-text">Chargement...</p>
+    </div>
 
     <script>
         function getQueryParam(param) {
@@ -34,7 +41,7 @@
             return urlParams.get(param);
         }
 
-        const config = {
+        const configDesc = {
             1: "Vos pratiques RH sont encore à leurs débuts, mais c’est une page blanche qui offre une opportunité incroyable. Vous êtes au tout début du chemin, et chaque action que vous entreprenez maintenant peut poser des bases solides pour l’avenir de votre entreprise. Il est temps de bâtir une organisation RH qui correspond à vos ambitions.",
             2: "Vos premières initiatives RH sont en cours de construction. Vous avez déjà posé quelques briques importantes, mais il reste encore du travail pour structurer vos pratiques. Ce niveau marque une progression encourageante et ouvre la voie à des améliorations concrètes pour soutenir vos équipes et votre entreprise.",
             3: "Vos pratiques RH commencent à prendre forme. Vous avez construit des bases solides et fonctionnelles, mais il y a encore des ajustements possibles pour atteindre tout leur potentiel. Ce niveau reflète un travail engagé et prometteur, avec des axes d’amélioration clairs pour continuer à évoluer efficacement.",
@@ -42,12 +49,25 @@
             5: "Vos pratiques RH sont au sommet : structurées, efficaces et reconnues comme exemplaires. Vous êtes une source d’inspiration pour d’autres entreprises et un modèle à suivre dans votre secteur. Ce niveau reflète une maîtrise complète et montre que vos RH sont un véritable levier stratégique pour votre succès."
         };
 
-        const level = getQueryParam('level');
-        if (level && config[level]) {
-            document.getElementById('dynamic-text').textContent = config[level];
+        // Update text content immediately when script loads
+        const levelDesc = getQueryParam('levelDesc');
+        if (levelDesc && configDesc[levelDesc]) {
+            document.getElementById('dynamic-text').textContent = configDesc[levelDesc];
         } else {
             document.getElementById('dynamic-text').textContent = "Niveau invalide ou non spécifié.";
         }
+
+        // Notify parent window of content height after text is set
+        window.addEventListener('DOMContentLoaded', function() {
+            const height = document.documentElement.scrollHeight;
+            window.parent.postMessage({ height: height }, '*');
+        });
+
+        // Additional listener for load event
+        window.addEventListener('load', function() {
+            const height = document.documentElement.scrollHeight;
+            window.parent.postMessage({ height: height }, '*');
+        });
     </script>
 </body>
 </html>
