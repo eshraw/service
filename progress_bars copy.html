@@ -5,7 +5,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-  .card {
+  .card1 {
     background-color: white;
     border-radius: 16px;
     padding: 24px;
@@ -14,11 +14,10 @@
     justify-content: center;
     align-items: center;
     font-family: 'Figtree', sans-serif;
-    width: 125%;
     scale: 0.85;
   }
 
-  .progress-container {
+  .progress-container1 {
     width: 100%;
     position: relative;
     margin: 20px 0;
@@ -27,7 +26,7 @@
     gap: 10px; /* Increased from 10px */
   }
 
-  .progress-bar {
+  .progress-bar1 {
     height: 20px;
     border-radius: 4px;
     transition: width 0.3s ease-in-out;
@@ -38,7 +37,7 @@
     margin-bottom: 16px; /* Added margin below progress bar */
   }
 
-  .progress-bar::before {
+  .progress-bar1::before {
     content: '';
     position: absolute;
     border-radius: 4px;
@@ -50,7 +49,7 @@
     background-color: var(--color, #ddd);
   }
 
-  .divider {
+  .divider1 {
     display: flex;
     height: 1px;
     justify-content: center;
@@ -60,7 +59,7 @@
     margin: 16px 0; /* Added margin around divider */
   }
 
-  .bar-title {
+  .bar-title1 {
     font-size: 14px;
     color: #333;
     margin-bottom: -16px;
@@ -74,7 +73,7 @@
     line-height: 130%;
   }
 
-  .percentage-card {
+  .percentage-card1 {
     display: flex;
     border-radius: 12px;
     padding: 8px 16px;
@@ -90,20 +89,21 @@
     font-style: normal;
     font-weight: 700;
     line-height: 130%;
-    text-align: right;
   }
 
-  .percentage-card .label {
+  .percentage-card1 .label1 {
     font-size: var(--Font-Size-XS, 12px);
     font-weight: 400;
     margin-bottom: 4px;
+    text-align: right;
   }
 
-  .percentage-card .score {
+  .percentage-card1 .score1 {
     font-size: var(--Font-Size-L, 20px);
+    text-align: right;
   }
 
-  .progress-subtext {
+  .progress-subtext1 {
     text-align: left;
     font-size: 14px;
     color: #666;
@@ -121,53 +121,53 @@
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="progress-container">
-    <div class="bar-title">
-      Organiser pour gagner en efficacité
-      <span class="percentage-card">
-        <span class="label">Score</span>
-        <span class="score">3.0/5</span>
-      </span>
-    </div>
-    <div class="progress-subtext">Note moyenne du marché : 2.7</div>
-    <div class="progress-bar progress-bar-1"></div>
-    <div class="divider"></div>
-    <div class="bar-title">
-      Manager et accompagner
-      <span class="percentage-card">
-        <span class="label">Score</span>
-        <span class="score">4.0/5</span>
-      </span>
-    </div>
-    <div class="progress-subtext">Note moyenne du marché : 3.2</div>
-    <div class="progress-bar progress-bar-2"></div>
-    <div class="divider"></div>
-    <div class="bar-title">
-      Mieux vivre ensemble
-      <span class="percentage-card">
-        <span class="label">Score</span>
-        <span class="score">3.5/5</span>
-      </span>
-    </div>
-    <div class="progress-subtext">Note moyenne du marché : 2.4</div>
-    <div class="progress-bar progress-bar-3"></div>
-    <div class="divider"></div>
-    <div class="bar-title">
+<div class="card1">
+  <div class="progress-container1">
+    <div class="bar-title1">
       Grandir ensemble
-      <span class="percentage-card">
-        <span class="label">Score</span>
-        <span class="score">4.5/5</span>
+      <span class="percentage-card1">
+        <span class="label1">Score</span>
+        <span class="score1">3.0/5</span>
       </span>
     </div>
-    <div class="progress-subtext">Note moyenne du marché : 2.9</div>
-    <div class="progress-bar progress-bar-4"></div>
+    <div class="progress-subtext1">Note moyenne du marché : 2.7</div>
+    <div class="progress-bar1 progress-bar1-1"></div>
+    <div class="divider1"></div>
+    <div class="bar-title1">
+      Proposer un package de rémunération attractif
+      <span class="percentage-card1">
+        <span class="label1">Score</span>
+        <span class="score1">4.0/5</span>
+      </span>
+    </div>
+    <div class="progress-subtext1">Note moyenne du marché : 3.2</div>
+    <div class="progress-bar1 progress-bar1-2"></div>
+    <div class="divider1"></div>
+    <div class="bar-title1">
+      Répondre aux exigences légales
+      <span class="percentage-card1">
+        <span class="label1">Score</span>
+        <span class="score1">3.5/5</span>
+      </span>
+    </div>
+    <div class="progress-subtext1">Note moyenne du marché : 2.4</div>
+    <div class="progress-bar1 progress-bar1-3"></div>
+    <div class="divider1"></div>
+    <div class="bar-title1">
+      Elaborer vos stratégies RH
+      <span class="percentage-card1">
+        <span class="label1">Score</span>
+        <span class="score1">4.5/5</span>
+      </span>
+    </div>
+    <div class="progress-subtext1">Note moyenne du marché : 2.9</div>
+    <div class="progress-bar1 progress-bar1-4"></div>
   </div>
 </div>
 
 <script>
   // Get progress values from URL parameters
-  const urlParams = new URLSearchParams(window.location.search);
+  const urlParams2 = new URLSearchParams(window.location.search);
 
   // Function to get color based on value
   function getProgressColor(value) {
@@ -177,9 +177,9 @@
   }
 
   // Function to update progress bar width and text
-  function updateProgress(barNumber, value) {
+  function updateProgress2(barNumber, value) {
     // Update the progress bar width and color
-    const progressBar = document.querySelector(`.progress-bar-${barNumber}`);
+    const progressBar = document.querySelector(`.progress-bar1-${barNumber}`);
     const color = getProgressColor(value);
     if (progressBar) {
         progressBar.style.setProperty('--width', `${(value / 5) * 100}%`);
@@ -187,9 +187,9 @@
     }
 
     // Update the percentage card text and color
-    const percentageCard = document.querySelector(`.progress-bar-${barNumber}`).previousElementSibling.previousElementSibling.querySelector('.percentage-card');
+    const percentageCard = document.querySelector(`.progress-bar1-${barNumber}`).previousElementSibling.previousElementSibling.querySelector('.percentage-card1');
     if (percentageCard) {
-        percentageCard.querySelector('.score').textContent = `${value.toFixed(1)}/5`;
+        percentageCard.querySelector('.score1').textContent = `${value.toFixed(1)}/5`;
         percentageCard.style.setProperty('--color', color);
     }
   }
@@ -197,16 +197,16 @@
   // Initialize progress bars
   window.addEventListener('DOMContentLoaded', () => {
     // Set values for all bars from URL parameters or use defaults
-    const progress1 = urlParams.get('scoreP1') ? parseFloat(urlParams.get('scoreP1')) : 3.0;
-    const progress2 = urlParams.get('scoreP2') ? parseFloat(urlParams.get('scoreP2')) : 4.0;
-    const progress3 = urlParams.get('scoreP3') ? parseFloat(urlParams.get('scoreP3')) : 3.5;
-    const progress4 = urlParams.get('scoreP4') ? parseFloat(urlParams.get('scoreP4')) : 4.5;
+    const progress5 = urlParams2.get('scoreP5') ? parseFloat(urlParams2.get('scoreP5')) : 3.0;
+    const progress6 = urlParams2.get('scoreP6') ? parseFloat(urlParams2.get('scoreP6')) : 4.0;
+    const progress7 = urlParams2.get('scoreP7') ? parseFloat(urlParams2.get('scoreP7')) : 3.5;
+    const progress8 = urlParams2.get('scoreP8') ? parseFloat(urlParams2.get('scoreP8')) : 4.5;
     
     // Update all progress bars
-    updateProgress(1, Math.min(Math.max(progress1, 0), 5));
-    updateProgress(2, Math.min(Math.max(progress2, 0), 5));
-    updateProgress(3, Math.min(Math.max(progress3, 0), 5));
-    updateProgress(4, Math.min(Math.max(progress4, 0), 5));
+    updateProgress2(1, Math.min(Math.max(progress5, 0), 5));
+    updateProgress2(2, Math.min(Math.max(progress6, 0), 5));
+    updateProgress2(3, Math.min(Math.max(progress7, 0), 5));
+    updateProgress2(4, Math.min(Math.max(progress8, 0), 5));
   });
 </script>
 </body>
