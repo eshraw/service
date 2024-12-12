@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texte Dynamique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        p {
+            font-family: 'Figtree', sans-serif;
+            font-size: 1.2rem;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p id="dynamic-paragraph"></p>
+
+    <script>
+        const content = {
+            1: "Vos pratiques RH sont encore à leurs débuts, mais c’est une page blanche qui offre une opportunité incroyable. Vous êtes au tout début du chemin, et chaque action que vous entreprenez maintenant peut poser des bases solides pour l’avenir de votre entreprise. Il est temps de bâtir une organisation RH qui correspond à vos ambitions.",
+            2: "Vos premières initiatives RH sont en cours de construction. Vous avez déjà posé quelques briques importantes, mais il reste encore du travail pour structurer vos pratiques. Ce niveau marque une progression encourageante et ouvre la voie à des améliorations concrètes pour soutenir vos équipes et votre entreprise.",
+            3: "Vos pratiques RH commencent à prendre forme. Vous avez construit des bases solides et fonctionnelles, mais il y a encore des ajustements possibles pour atteindre tout leur potentiel. Ce niveau reflète un travail engagé et prometteur, avec des axes d’amélioration clairs pour continuer à évoluer efficacement.",
+            4: "Vous avez mis en place des pratiques RH solides et satisfaisantes. Vos processus sont bien définis et répondent aux besoins de votre entreprise. Ce niveau démontre une organisation RH performante, mais il reste toujours de petites optimisations possibles pour atteindre l’excellence.",
+            5: "Vos pratiques RH sont au sommet : structurées, efficaces et reconnues comme exemplaires. Vous êtes une source d’inspiration pour d’autres entreprises et un modèle à suivre dans votre secteur. Ce niveau reflète une maîtrise complète et montre que vos RH sont un véritable levier stratégique pour votre succès."
+        };
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const level = getQueryParam('level');
+        document.getElementById('dynamic-paragraph').textContent = content[level] || "Veuillez fournir un paramètre 'level' valide dans l'URL.";
+    </script>
+</body>
+</html>
