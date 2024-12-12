@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +9,10 @@
             margin: 0;
             padding: 0;
             display: flex;
-            align-items: center;
             justify-content: center;
-            height: 100vh;
-            background-color: #f5f5f5;
+            align-items: center;
+            height: 100%;
         }
-
         img {
             max-width: 100%;
             height: auto;
@@ -22,10 +20,15 @@
     </style>
 </head>
 <body>
-    <img id="dynamic-image" src="" alt="Illustration Niveau">
+    <img id="dynamic-image" src="" alt="Niveau RH">
 
     <script>
-        const images = {
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const config = {
             1: "https://github.com/eshraw/service/blob/main/assets/niv1.png?raw=true",
             2: "https://github.com/eshraw/service/blob/main/assets/niv2.png?raw=true",
             3: "https://github.com/eshraw/service/blob/main/assets/niv3.png?raw=true",
@@ -33,14 +36,12 @@
             5: "https://github.com/eshraw/service/blob/main/assets/niv5.png?raw=true"
         };
 
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
         const level = getQueryParam('level');
-        const imageSrc = images[level] || "";
-        document.getElementById('dynamic-image').src = imageSrc;
+        if (level && config[level]) {
+            document.getElementById('dynamic-image').src = config[level];
+        } else {
+            document.getElementById('dynamic-image').alt = "Niveau invalide ou non spécifié.";
+        }
     </script>
 </body>
 </html>
